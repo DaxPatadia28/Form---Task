@@ -1,0 +1,77 @@
+/* Login Form Styles */
+body {
+    background: #444444;
+    color: #fff;
+    min-height: 100vh;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.maincontent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h2{
+    text-align: center;
+    margin-top: 100px;
+}
+
+.login-container {
+    background: #fff;
+    color: #111;
+    margin-top: 50px;
+    padding: 2.5rem 2rem 2.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+    min-width: 320px;
+    max-width: 20vw;
+}
+
+.login-form h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-top: 0;
+}
+
+.input-group {
+    margin-bottom: 1.2rem;
+    display: flex;
+    flex-direction: column;
+}
+.input-group label {
+    margin-bottom: 0.4rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+.input-group input {
+    padding: 0.7rem 1rem;
+    border: 1px solid #222;
+    border-radius: 6px;
+    font-size: 1rem;
+    background: #f8f8f8;
+    color: #111;
+    outline: none;
+    transition: border 0.2s;
+}
+.input-group input:focus {
+    border: 1.5px solid #111;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 0.8rem 0;
+    background: #111;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 2rem;
+}
+.login-btn:hover {
+    background: #222;
+}
