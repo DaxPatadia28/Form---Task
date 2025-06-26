@@ -1,18 +1,23 @@
-// Login form JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('userForm');
+    const table = document.getElementById('detailsTable');
+    const tbody = table.querySelector('tbody');
 
-document.addEventListener('DOMContentLoaded', () => {
-    const loginForm = document.querySelector('.login-form');
-    const usernameInput = document.getElementById('username');
-    const passwordInput = document.getElementById('password');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const name = document.getElementById('name').value;
+        const number = document.getElementById('number').value;
+        const email = document.getElementById('email').value;
+        const dob = document.getElementById('dob').value;
 
-    loginForm.addEventListener('submit', function(event) {
-        const username = usernameInput.value.trim();
-        const password = passwordInput.value.trim();
-
-        if (!username || !password) {
-            alert('Please enter both username and password.');
-            return;
-        }
-        alert(`Welcome, ${username}! You have logged in successfully.`);
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${name}</td>
+            <td>${number}</td>
+            <td>${email}</td>
+            <td>${dob}</td>
+        `;
+        tbody.appendChild(row);
+        form.reset();
     });
 });
