@@ -33,8 +33,10 @@ document.addEventListener('DOMContentLoaded', function() {
             <td>${number}</td>
             <td>${email}</td>
             <td>${dob}</td>
+            <td>${age}</td>
         `;
         tbody.appendChild(row);
         form.reset();
     });
 });
+
