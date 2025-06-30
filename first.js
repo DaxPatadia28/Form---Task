@@ -1,7 +1,23 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('userForm');
+    const numberInput = document.getElementById('number');
     const table = document.getElementById('detailsTable');
     const tbody = table.querySelector('tbody');
+
+    numberInput.addEventListener('input', function() {
+        const originalValue = numberInput.value;
+        let numericValue = originalValue.replace(/[^0-9]/g, '');
+
+        if (originalValue !== numericValue) {
+            alert('Invalid input. Only numbers are allowed.');
+        }
+
+        if (numericValue.length > 10) {
+            numericValue = numericValue.slice(0, 10);
+        }
+
+        numberInput.value = numericValue;
+    });
 
     form.addEventListener('submit', function(event) {
         event.preventDefault();
@@ -11,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const dob = document.getElementById('dob').value;
 
         if (!/^\d{10}$/.test(number)) {
-            alert('Invalid contact number!');
+            alert('Invalid contact number! It must be 10 digits long.');
             return;
         }
 
