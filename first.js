@@ -5,12 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const tbody = table.querySelector('tbody');
 
     numberInput.addEventListener('input', function() {
-        const originalValue = numberInput.value;
-        let numericValue = originalValue.replace(/[^0-9]/g, '');
-
-        if (originalValue !== numericValue) {
-            alert('Invalid input. Only numbers are allowed.');
-        }
+        let numericValue = numberInput.value.replace(/[^0-9]/g, '');
 
         if (numericValue.length > 10) {
             numericValue = numericValue.slice(0, 10);
@@ -55,4 +50,3 @@ document.addEventListener('DOMContentLoaded', function() {
         form.reset();
     });
 });
-
