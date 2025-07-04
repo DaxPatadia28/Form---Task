@@ -4,6 +4,34 @@ document.addEventListener('DOMContentLoaded', function() {
     const table = document.getElementById('detailsTable');
     const tbody = table.querySelector('tbody');
 
+
+    function getUsersFromStorage() {
+        const users = localStorage.getItem('users');
+        return users ? JSON.parse(users) : [];
+    }
+
+    
+    function saveUsersToStorage(users) {
+        localStorage.setItem('users', JSON.stringify(users));
+    }
+
+    
+    function addRowToTable(user) {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${user.name}</td>
+            <td>${user.number}</td>
+            <td>${user.email}</td>
+            <td>${user.dob}</td>
+            <td>${user.age}</td>
+        `;
+        tbody.appendChild(row);
+    }
+
+    
+    const existingUsers = getUsersFromStorage();
+    existingUsers.forEach(addRowToTable);
+
     numberInput.addEventListener('input', function() {
         let numericValue = numberInput.value.replace(/[^0-9]/g, '');
 
@@ -38,15 +66,16 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td>${name}</td>
-            <td>${number}</td>
-            <td>${email}</td>
-            <td>${dob}</td>
-            <td>${age}</td>
-        `;
-        tbody.appendChild(row);
+        
+        const user = { name, number, email, dob, age };
+
+        
+        const users = getUsersFromStorage();
+        users.push(user);
+        saveUsersToStorage(users);
+
+        
+        addRowToTable(user);
         form.reset();
     });
 });
