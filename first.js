@@ -29,9 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     
-    const existingUsers = getUsersFromStorage();
-    existingUsers.forEach(addRowToTable);
-
+   
     numberInput.addEventListener('input', function() {
         let numericValue = numberInput.value.replace(/[^0-9]/g, '');
 
