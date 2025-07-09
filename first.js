@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const numberInput = document.getElementById('number');
     const table = document.getElementById('detailsTable');
     const tbody = table.querySelector('tbody');
+    const cityInput = document.getElementById('city');
 
 
     function getUsersFromStorage() {
@@ -24,12 +25,13 @@ document.addEventListener('DOMContentLoaded', function() {
             <td>${user.email}</td>
             <td>${user.dob}</td>
             <td>${user.age}</td>
+            <td>${user.city}</td>
         `;
         tbody.appendChild(row);
     }
 
-    
-   
+
+
     numberInput.addEventListener('input', function() {
         let numericValue = numberInput.value.replace(/[^0-9]/g, '');
 
@@ -46,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const number = document.getElementById('number').value;
         const email = document.getElementById('email').value;
         const dob = document.getElementById('dob').value;
+        const city = document.getElementById('city').value;
 
         if (!/^\d{10}$/.test(number)) {
             alert('Invalid contact number! It must be 10 digits long.');
@@ -65,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         
-        const user = { name, number, email, dob, age };
+        const user = { name, number, email, dob, age, city };
 
         
         const users = getUsersFromStorage();
