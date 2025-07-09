@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const table = document.getElementById('detailsTable');
     const tbody = table.querySelector('tbody');
     const cityInput = document.getElementById('city');
+    const cityCountTable = document.getElementById('cityCountTable');
+    const cityCountTbody = cityCountTable.querySelector('tbody');
 
 
     function getUsersFromStorage() {
@@ -30,7 +32,23 @@ document.addEventListener('DOMContentLoaded', function() {
         tbody.appendChild(row);
     }
 
+    function updateCityCountTable(users) {
+        const cityCounts = {};
+        users.forEach(user => {
+            if (user.city) {
+                cityCounts[user.city] = (cityCounts[user.city] || 0) + 1;
+            }
+        });
+        cityCountTbody.innerHTML = '';
+        let srNo = 1;
+        Object.entries(cityCounts).forEach(([city, count]) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `<td>${srNo++}</td><td>${city}</td><td>${count}</td>`;
+            cityCountTbody.appendChild(row);
+        });
+    }
 
+    cityCountTbody.innerHTML = '';
 
     numberInput.addEventListener('input', function() {
         let numericValue = numberInput.value.replace(/[^0-9]/g, '');
@@ -78,5 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         addRowToTable(user);
         form.reset();
+        updateCityCountTable(users);
     });
 });
+
