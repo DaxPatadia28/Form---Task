@@ -42,7 +42,21 @@ form button {
     font-size: 16px;
 }
 
+button {
+    background: #000000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
 form button:hover {
+    background: #3b3b3b;
+}
+
+button:hover {
     background: #3b3b3b;
 }
 
@@ -61,4 +75,3 @@ table th, table td {
 table th {
     background: #f0f0f0;
 }
-
